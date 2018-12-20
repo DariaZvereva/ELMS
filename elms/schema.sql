@@ -2,7 +2,7 @@ drop table if exists users;
 drop table if exists groups;
 drop table if exists teachers;
 drop table if exists students;
-drop table if exists group_students;
+drop table if exists courses;
 create table users (
   id integer primary key autoincrement,
   username text not null unique,
@@ -39,3 +39,7 @@ create table students (
   foreign key (user_id) references users(id)
   foreign key (group_id) references groups(id)
 );
+create table courses (
+  id integer primary key autoincrement,
+  name text
+)
