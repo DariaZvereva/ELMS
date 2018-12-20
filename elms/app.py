@@ -2,6 +2,7 @@ import sqlite3
 import os
 from flask import Flask, request, session, g, redirect, url_for, abort, \
     render_template, flash
+import logging
 
 # конфигурация
 DATABASE = '/tmp/lms.db'
@@ -11,7 +12,6 @@ USERNAME = 'admin'
 PASSWORD = 'default'
 app = Flask(__name__)
 app.config.from_object(__name__)
-import logging
 
 # Загружаем конфиг по умолчанию и переопределяем в конфигурации часть
 # значений через переменную окружения
@@ -58,34 +58,8 @@ def init_db():
 
 
 @app.route('/')
-def show_entries():
-    db = get_db()
-    cur = db.execute('select * from users')
-    entries = cur.fetchall()
-    return "Hello, World!"
-
-
-@app.route('/add_course', methods=['POST'])
-def add_entry():
-    db = get_db()
-    db.execute('insert into courses (name) values (?)',
-               [request.form['name']])
-    db.commit()
-
-    flash('New entry was successfully posted')
-    return ""
-
-
-@app.route('/get_course', methods=['GET'])
-def get_course():
-    db = get_db()
-    cur = db.execute('select * from courses where name == (?)',
-                     [request.form['name']])
-    db.commit()
-
-    courses = cur.fetchall()
-    flash('New entry was successfully posted')
-    return courses[0]["name"]
+def hello_world():
+    return 'Hello World!'
 
 
 if __name__ == '__main__':
