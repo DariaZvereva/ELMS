@@ -39,9 +39,3 @@ create table students (
   foreign key (user_id) references users(id)
   foreign key (group_id) references groups(id)
 );
-create table group_students (
-  student_id integer unique,
-  group_id integer not null,
-  foreign key (student_id) references students(id)
-  foreign key (group_id) references groups(id)
-);

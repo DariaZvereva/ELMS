@@ -1,6 +1,8 @@
 language: python
 python:
   - 3.6
+before_install:
+  - chmod +x setup.py
 install:
   - pip install codecov
 script:
