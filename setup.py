@@ -4,17 +4,15 @@
 
 from setuptools import setup
 
-
-
 setup(
     name="ELMS",
     version="0.0.0",
-    author="",
-    author_email="",
+    author="zverevads",
+    author_email="zverevads@gmail.com",
     url="https://github.com/DariaZvereva/ELMS",
     license="MIT",
     packages=[
-        "elms",
+        "elms"
     ],
     install_requires=[
     ],
