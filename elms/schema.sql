@@ -48,6 +48,6 @@ create table courses (
 create table schedule (
   group_id integer unique,
   course_id integer unique,
-  foreign key (user_id) references users(id)
+  foreign key (group_id) references groups(id)
   foreign key (course_id) references courses(id)
 );
